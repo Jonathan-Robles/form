@@ -1,0 +1,46 @@
+{
+  "contact": {
+    "Fullname": "",
+    "Salesforce id": "",
+    "Celular": "",
+    "Celular2": "",
+    "Email": "",
+    "Contact best time": "",
+    "Specialty": [
+      { "choose": "Choose..." },
+      { "PA": "Physician Assistant" },
+      { "NP": "Nurse Practitioner" },
+      { "EMT": "Emergency Medical Technician" }
+    ]
+  },
+  "pa": {
+    "State License": "",
+    "Nccpa": "",
+    "Certificate": ["BLS", "CPR", "NRP", "PALS", "ACLS"],
+    "Association": ["AHA", "ARC", "ASHI"],
+    "Years of Exp": ["6 Months", "1 Year", "More than a year"],
+    "Experience": ["UC", "EM", "F.Practice", "Peds 0", "Gers 99"],
+    "Bilingual": ["No", "Yes"],
+    "Shift": ["Full-time", "Part-time"]
+  },
+  "np": {
+    "State License": "",
+    "Certificate": ["BLS", "CPR", "NRP", "PALS", "ACLS"],
+    "Association": ["AHA", "ARC", "ASHI"],
+    "Years of Exp": ["6 Months", "1 Year", "More than a year"],
+    "Experience": ["UC", "EM", "F.Practice", "Peds 0", "Gers 99"],
+    "Bilingual": ["No", "Yes"],
+    "Shift": ["Full-time", "Part-time"]
+  },
+  "emt": {
+    "State License": "",
+    "Compact License": "",
+    "NREMT": ["No", "Yes"],
+    "Certificate": ["BLS", "CPR", "NRP", "PALS", "ACLS"],
+    "Association": ["AHA", "ARC", "ASHI"],
+    "Years of Exp": ["6 Months", "1 Year", "More than a year"],
+    "Experience": ["UC", "EM", "F.Practice", "Peds 0", "Gers 99"],
+    "Bilingual": ["No", "Yes"],
+    "Shift": ["Full-time", "Part-time"]
+  }
+}
