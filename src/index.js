@@ -1,9 +1,5 @@
 // alt + shift + f    => Format the code
 
-//import "./styles.css";
-// const URL_BASE = "https://jonathan-robles.github.io/api/txt.json";
-const URL_BASE = "https://jonathan-robles.github.io/api/us_states.json";
-
 const app = document.getElementById("app");
 const myForm = document.createElement("form");
 
@@ -60,56 +56,63 @@ fetch("src/data.json")
     const submitBtn = document.createElement("button");
     const mainContainer = document.createElement("div");
     mainContainer.id = "main-container";
-
     submitBtn.innerHTML = "Submit";
     submitBtn.setAttribute("type", "submit");
     submitBtn.setAttribute("class", "btn btn-primary");
-
     myForm.appendChild(mainContainer);
     myForm.appendChild(submitBtn);
-
     /////////////////////////////
 
-    const speOptions = document.getElementById("Specialty");
-    console.log(speOptions);
-    speOptions.addEventListener("change", () => {
-      // let x = speOptions.value;
-      const mainCont = document.getElementById("main-container");
+    const specialtyOpt = document.getElementById("Specialty");
+    const mainCont = document.getElementById("main-container");
 
-      switch (speOptions.value) {
+    specialtyOpt.addEventListener("change", () => {
+      switch (specialtyOpt.value) {
         case "Physician Assistant":
           mainCont.innerHTML = "";
-          switch_specialty(data.pa);
+          switch_requirement(data.pa);
+          tester2("Nccpa");
           break;
         case "Nurse Practitioner":
           mainCont.innerHTML = "";
-          switch_specialty(data.np);
+          switch_requirement(data.np);
+
           break;
         case "Emergency Medical Technician":
           mainCont.innerHTML = "";
-          switch_specialty(data.emt);
+          switch_requirement(data.emt);
+          tester2("Compact");
+          break;
+        case "Paramedic":
+          mainCont.innerHTML = "";
+          switch_requirement(data.emt);
+          tester2("Compact");
           break;
         default:
           break;
       }
     });
-    /////////////////////////
 
-    function switch_specialty(jsonObj) {
+    function switch_requirement(jsonObj) {
       for (const key in jsonObj) {
         const container = document.createElement("div");
         const label = document.createElement("label");
         const mainCont = document.getElementById("main-container");
 
-        //Set NCCPA dropDownStates !!!
-        dropDownStates("states", "State License", key, container);
-        dropDownStates("nccpa", "Nccpa", key, container);
-        dropDownStates("compact", "Compact License", key, container);
+        //Set dropDown States !!!
+        dropDownStates("states", "State-License", key, container);
+
+        // dropDownStates2("Nccpa", key, container);
+        // dropDownStates2("Compact", key, container);
         mainContainer.appendChild(container);
 
         label.className = "input-group-text bold";
         label.setAttribute("for", [key]);
         label.textContent = [key];
+
+        if ([key] == "Nccpa") {
+          label.textContent = [key] + " required";
+        }
         container.className = "container main-box input-group input-group-sm";
         container.appendChild(label);
 
@@ -118,38 +121,69 @@ fetch("src/data.json")
           const box = document.createElement("div");
           const input = document.createElement("input");
           const span = document.createElement("span");
-
           box.className = "inp-box input-group-text";
           input.setAttribute("name", [key]);
           input.setAttribute("value", jsonObj[key][k]);
           input.setAttribute("type", "radio");
 
-          if ([key] == "Certificate") {
-            input.removeAttribute("name");
-            container.setAttribute("id", "certificate");
+          function set_id(id) {
+            if ([key] == id) {
+              container.setAttribute("id", id);
+              // container.style.display = "none";
+            }
           }
+          set_id("Nccpa");
+          set_id("Compact");
 
-          if ([key] == "Experience") {
-            input.removeAttribute("name");
-            container.setAttribute("id", "experience");
+          function multiSelection(lbl) {
+            if ([key] == lbl) {
+              input.removeAttribute("name");
+              input.setAttribute("type", "checkbox");
+              container.setAttribute("id", lbl);
+            }
           }
+          multiSelection("Certificate");
+          multiSelection("Experience");
 
           span.className = "input ";
           span.textContent = jsonObj[key][k];
-
           //Append elements
           box.appendChild(span);
           box.appendChild(input);
-
           container.appendChild(box);
           mainCont.appendChild(container);
           myForm.insertBefore(mainContainer, submitBtn);
         }
       }
     }
-
-    /////////////////////////////
   });
+
+function tester2(obj) {
+  fetch("src/states.json")
+    .then((res) => res.json())
+    .then((data) => {
+      let x = Object.keys(data[obj]);
+
+      const stateSlt = document.getElementById("State-License");
+      const check = document.getElementsByName(obj);
+      stateSlt.addEventListener("change", () => {
+        const result = x.find((e) => {
+          return stateSlt.value == e;
+        });
+        if (result !== undefined) {
+          check[0].disabled = true;
+          check[1].disabled = false;
+          check[0].checked = false;
+          check[1].checked = true;
+        } else {
+          check[0].disabled = false;
+          check[1].disabled = true;
+          check[0].checked = true;
+          check[1].checked = false;
+        }
+      });
+    });
+}
 
 const form = document.getElementById("form");
 const myPrompt = document.getElementById("prompt");
@@ -158,7 +192,7 @@ form.addEventListener("submit", function (e) {
   e.preventDefault();
 
   const cert = document
-    .getElementById("certificate")
+    .getElementById("Certificate")
     .getElementsByTagName("input");
   let certificationsTxt = "Certifications : ";
 
@@ -169,7 +203,7 @@ form.addEventListener("submit", function (e) {
   }
 
   const exp = document
-    .getElementById("experience")
+    .getElementById("Experience")
     .getElementsByTagName("input");
   let experienceTxt = "Experience : ";
 
@@ -180,9 +214,7 @@ form.addEventListener("submit", function (e) {
   }
 
   const result = new FormData(form);
-
   let x = [...result];
-
   let promp = "";
 
   x.forEach(function (y) {
@@ -197,17 +229,13 @@ function dropDownStates(states, str, prop, container) {
       .then((res) => res.json())
       .then((data) => {
         const select = document.createElement("select");
-
         select.id = [prop];
         select.name = [prop];
         select.className = "form-select";
-
         for (const state in data[states]) {
-          console.log(data.states);
           const option = document.createElement("option");
-
           option.value = [state];
-          option.innerHTML = `${state}, ${data[states][state]}`;
+          option.innerHTML = `${state}. ${data[states][state]}`;
           select.appendChild(option);
           container.appendChild(select);
         }
@@ -215,24 +243,20 @@ function dropDownStates(states, str, prop, container) {
   }
 }
 
-// function dropDownStates(file, str, prop, container) {
-//   if ([prop] == str) {
-//     fetch([file])
-//       .then((res) => res.json())
-//       .then((states) => {
-//         const select = document.createElement("select");
-
-//         select.id = [prop];
-//         select.name = [prop];
-//         select.className = "form-select";
-//         for (const state in states) {
-//           const option = document.createElement("option");
-
-//           option.value = [state];
-//           option.innerHTML = `${state}, ${states[state]}`;
-//           select.appendChild(option);
-//           container.appendChild(select);
-//         }
-//       });
-//   }
-// }
+function dropDownStates2(states, prop, container) {
+  if ([prop] == states) {
+    fetch("src/states.json")
+      .then((res) => res.json())
+      .then((data) => {
+        const select = document.createElement("select");
+        select.className = "form-select";
+        for (const state in data[states]) {
+          const option = document.createElement("option");
+          option.value = [state];
+          option.innerHTML = `${state}. ${data[states][state]}`;
+          select.appendChild(option);
+          container.appendChild(select);
+        }
+      });
+  }
+}
