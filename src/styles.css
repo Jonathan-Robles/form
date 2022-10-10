@@ -1,0 +1,35 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+#app form,
+#prompt {
+  margin: 5%;
+  width: auto;
+}
+
+#prompt {
+  font-size: medium;
+}
+body {
+  font-family: sans-serif;
+}
+.main-box {
+  margin: 4px;
+}
+
+.bold {
+  font-weight: bold !important;
+  color: navy !important;
+}
+
+.inp-box {
+  /* display: contents; */
+  /* margin: 3px; */
+  margin-left: 5px !important;
+  display: grid !important;
+}
+
+.inp-box input {
+  font-size: 50px;
+}
