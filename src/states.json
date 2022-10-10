@@ -1,5 +1,6 @@
 {
   "states": {
+    "Choose..": "",
     "AL": "Alabama",
     "AK": "Alaska",
     "AZ": "Arizona",
@@ -56,8 +57,8 @@
     "WI": "Wisconsin",
     "WY": "Wyoming"
   },
-  "nccpa": {
-    "No": "No Need",
+  "Nccpa": {
+    "Choose..": "",
     "AK": "Alaska",
     "CT": "Connecticut",
     "HI": "Hawaii",
@@ -79,25 +80,26 @@
     "WV": "West Virginia",
     "WY": "Wyoming"
   },
-  "compact": {
-    "No": "No Need",
-    "AK": "Alaska",
-    "CT": "Connecticut",
-    "HI": "Hawaii",
+  "Compact": {
+    "Choose..": "",
+    "AL": "Alabama",
+    "CO": "Colorado",
+    "DE": "Delaware",
+    "GA": "Georgia",
     "ID": "Idaho",
-    "IL": "Illinois",
     "IN": "Indiana",
-    "KY": "Kentucky",
+    "IA": "Iowa",
+    "KS": "Kansas",
     "LA": "Louisiana",
+    "MS": "Mississippi",
     "MO": "Missouri",
-    "MT": "Montana",
-    "NV": "Nevada",
-    "NH": "New Hampshire",
-    "NM": "New Mexico",
     "ND": "North Dakota",
-    "OH": "Ohio",
-    "PA": "Pennsylvania",
+    "NE": "Nebraska",
     "SC": "South Carolina",
+    "SD": "South Dakota",
+    "TN": "Tennessee",
+    "TX": "Texas",
+    "UT": "Utah",
     "VA": "Virginia",
     "WV": "West Virginia",
     "WY": "Wyoming"
