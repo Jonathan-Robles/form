@@ -111,7 +111,11 @@ fetch("src/data.json")
         label.textContent = [key];
 
         if ([key] == "Nccpa") {
-          label.textContent = [key] + " required";
+          label.textContent = [key] + " is required";
+        }
+        
+        if ([key] == "Compact") {
+          label.textContent = "This's " +[key] ;
         }
         container.className = "container main-box input-group input-group-sm";
         container.appendChild(label);
@@ -129,7 +133,7 @@ fetch("src/data.json")
           function set_id(id) {
             if ([key] == id) {
               container.setAttribute("id", id);
-              // container.style.display = "none";
+              container.style.display = "none";
             }
           }
           set_id("Nccpa");
@@ -166,20 +170,24 @@ function tester2(obj) {
 
       const stateSlt = document.getElementById("State-License");
       const check = document.getElementsByName(obj);
+      const ida = document.getElementById(obj);
+    
       stateSlt.addEventListener("change", () => {
         const result = x.find((e) => {
           return stateSlt.value == e;
         });
         if (result !== undefined) {
-          check[0].disabled = true;
-          check[1].disabled = false;
-          check[0].checked = false;
-          check[1].checked = true;
+          ida.style.display = "flex";
+          //check[0].disabled = true;
+          //check[1].disabled = false;
+          //check[0].checked = false;
+          //check[1].checked = true;
         } else {
-          check[0].disabled = false;
-          check[1].disabled = true;
-          check[0].checked = true;
-          check[1].checked = false;
+          ida.style.display = "none";
+          //check[0].disabled = false;
+          //check[1].disabled = true;
+          //check[0].checked = true;
+          //check[1].checked = false;
         }
       });
     });
