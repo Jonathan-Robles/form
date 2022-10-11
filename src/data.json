@@ -35,7 +35,7 @@
   },
   "emt": {
     "State-License": "",
-    "Compact": ["No", "Yes"],
+    "Compact": ["Yes"],
     "NREMT": ["No", "Yes"],
     "Certificate": ["BLS", "CPR", "NRP", "PALS", "ACLS"],
     "Association": ["AHA", "ARC", "ASHI"],
