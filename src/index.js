@@ -56,7 +56,7 @@ fetch("src/data.json")
     const submitBtn = document.createElement("button");
     const mainContainer = document.createElement("div");
     mainContainer.id = "main-container";
-    submitBtn.innerHTML = "Submit";
+    submitBtn.innerHTML = "Click to generate notes";
     submitBtn.setAttribute("type", "submit");
     submitBtn.setAttribute("class", "btn btn-primary");
     myForm.appendChild(mainContainer);
