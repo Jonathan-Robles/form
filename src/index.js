@@ -113,12 +113,24 @@ fetch("src/data.json")
         if ([key] == "Nccpa") {
           label.textContent = [key] + " is required";
         }
-        
+
         if ([key] == "Compact") {
-          label.textContent = "This's " +[key] ;
+          label.textContent = "This's " + [key];
         }
+
         container.className = "container main-box input-group input-group-sm";
         container.appendChild(label);
+
+        if ([key] == "Notes") {
+          const input = document.createElement("INPUT");
+          input.setAttribute("type", "text");
+          input.id = [key];
+          input.name = [key];
+          input.className = "form-control";
+          mainCont.appendChild(container);
+          container.appendChild(input);
+
+        }
 
         //   }
         for (const k in jsonObj[key]) {
@@ -171,7 +183,7 @@ function tester2(obj) {
       const stateSlt = document.getElementById("State-License");
       const check = document.getElementsByName(obj);
       const ida = document.getElementById(obj);
-    
+
       stateSlt.addEventListener("change", () => {
         const result = x.find((e) => {
           return stateSlt.value == e;
