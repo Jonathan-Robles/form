@@ -240,7 +240,7 @@ form.addEventListener("submit", function (e) {
   x.forEach(function (y) {
     promp += `  ${y[0]} : ${y[1]}  <br>`;
   });
-  myPrompt.innerHTML = `${promp}  ${certificationsTxt} <br> ${experienceTxt}`;
+  myPrompt.innerHTML = `${promp} <br> ${certificationsTxt} <br> ${experienceTxt}`;
 });
 
 function dropDownStates(states, str, prop, container) {
