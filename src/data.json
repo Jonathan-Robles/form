@@ -12,7 +12,9 @@
       { "PA": "Physician Assistant" },
       { "NP": "Nurse Practitioner" },
       { "EMT": "Emergency Medical Technician" },
-      { "EMT-P": "Paramedic" }
+      { "EMT-P": "Paramedic" },
+      { "CMA": "Certified Medical Assistant" },
+      { "CNA": "Certified Nursing Assistant" }
     ]
   },
   "pa": {
@@ -36,13 +38,33 @@
     "Shift": ["Full-time", "Part-time"],
     "Notes": ""
   },
+  "cna": {
+    "State-License": "",
+    "Certificate": ["BLS", "CPR", "NRP", "PALS", "ACLS"],
+    "Association": ["AHA", "ARC", "ASHI"],
+    "Years of Exp": ["6 Months", "1 Year", "More than a year"],
+    "Experience": ["UC", "EM", "F.Practice", "Peds 0", "Gers 99"],
+    "Bilingual": ["No", "Yes"],
+    "Shift": ["Full-time", "Part-time"],
+    "Notes": ""
+  },
+  "cma": {
+    "State-License": "",
+    "Certificate": ["BLS", "CPR", "NRP", "PALS", "ACLS"],
+    "Association": ["AHA", "ARC", "ASHI"],
+    "Years of Exp": ["6 Months", "1 Year", "More than a year"],
+    "Experience": ["UC", "EM", "F.Practice", "Peds 0", "Gers 99"],
+    "Bilingual": ["No", "Yes"],
+    "Shift": ["Full-time", "Part-time"],
+    "Notes": ""
+  },
   "emt": {
     "State-License": "",
     "Compact": ["Yes"],
     "NREMT": ["No", "Yes"],
     "Certificate": ["BLS", "CPR", "NRP", "PALS", "ACLS"],
     "Association": ["AHA", "ARC", "ASHI"],
-    "Years of Exp": ["1 Year", "More than a year"],
+    "Years of Exp": ["6 Months", "1 Year", "3 years +"],
     "Experience": ["UC", "EM", "F.Practice", "Peds 0", "Gers 99"],
     "Bilingual": ["No", "Yes"],
     "Shift": ["Full-time", "Part-time"],
@@ -54,7 +76,7 @@
     "NREMT": ["No", "Yes"],
     "Certificate": ["BLS", "CPR", "NRP", "PALS", "ACLS"],
     "Association": ["AHA", "ARC", "ASHI"],
-    "Years of Exp": ["6 Months", "1 Year", "More than a year"],
+    "Years of Exp": ["6 Months", "1 Year", "3 years +"],
     "Experience": ["UC", "EM", "F.Practice", "Peds 0", "Gers 99"],
     "Bilingual": ["No", "Yes"],
     "Shift": ["Full-time", "Part-time"],

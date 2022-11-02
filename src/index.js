@@ -88,6 +88,15 @@ fetch("src/data.json")
           switch_requirement(data.emt);
           tester2("Compact");
           break;
+        case "Certified Medical Assistant":
+          mainCont.innerHTML = "";
+          switch_requirement(data.cma);
+          break;
+        case "Certified Nursing Assistant":
+          mainCont.innerHTML = "";
+          switch_requirement(data.cna);
+
+          break;
         default:
           break;
       }
@@ -129,7 +138,6 @@ fetch("src/data.json")
           input.className = "form-control";
           mainCont.appendChild(container);
           container.appendChild(input);
-
         }
 
         //   }
